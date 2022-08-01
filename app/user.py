@@ -41,6 +41,10 @@ class User:
         table.add_column(header="created at")
         table.add_column(header="status")
         for todo in todos:
+<<<<<<< HEAD
+=======
+            status = todo["status"]
+>>>>>>> 2a743493f6e3e752a56d19faa18521061085a22f
             table.add_row(
                 todo["title"],
                 todo["description"],
