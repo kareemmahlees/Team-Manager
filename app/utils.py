@@ -1,4 +1,3 @@
-# from datetime import datetime, timedelta
 import datetime
 import requests
 from database import conn, cr
@@ -23,15 +22,6 @@ def validate_user(username, password):
         return user["role"]
 
 
-# print(body)
-print(
-    datetime.datetime.combine(
-        datetime.date(2003, 9, 3), datetime.time(5, 45, 3)
-    ).isoformat()
-    + "Z"
-)
-
-
 def schedule(p1, p2, start: datetime.datetime, end: datetime.datetime):
     headers = {"Authorization": "Bearer " + settings.access_token}
     body = {
@@ -45,7 +35,3 @@ def schedule(p1, p2, start: datetime.datetime, end: datetime.datetime):
         headers=headers,
         json=body,
     )
-    print(res.json())
-
-
-# schedule()

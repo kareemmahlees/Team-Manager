@@ -34,7 +34,7 @@ if val == "Admin":
             "List Members": lambda: admin.list_members(),
             "Add Team Member": lambda: admin.add_member(),
             "Delete Team Member": lambda: admin.delete_member(),
-            "List Task's": lambda: admin.list_tasks(),
+            "List Tasks": lambda: admin.list_tasks(),
             "Assign Task": lambda: admin.assign_task(username),
             "Update Task": lambda: admin.update_task(),
             "Delete Task": lambda: admin.delete_task(),
