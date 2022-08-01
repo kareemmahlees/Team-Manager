@@ -38,6 +38,7 @@ if val == "Admin":
             "Assign Task": lambda: admin.assign_task(username),
             "Update Task": lambda: admin.update_task(),
             "Delete Task": lambda: admin.delete_task(),
+            "Schedule Meeting": lambda: admin.schedule_meeting(username),
         }
         try:
             command = questionary.select(

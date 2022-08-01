@@ -10,6 +10,7 @@ class Settings(BaseSettings):
     user: str
     password: str
     host: str
+    access_token: str
 
 
 settings = Settings()

@@ -1,7 +1,9 @@
+from datetime import datetime
 import questionary
 from database import conn, cr
 from rich.console import Console
 from rich.table import Table
+import utils
 
 console = Console()
 
@@ -137,3 +139,30 @@ class Admin:
             console.print("[green]Successfuly Deleted Task")
         except:
             console.print("[red bold]Error While Deleting Task[/]")
+
+    def schedule_meeting(self, person_1):
+        cr.execute(""" SELECT * FROM users""")
+        members = cr.fetchall()
+        table = Table(title="Members", show_header=True, show_lines=True)
+        table.add_column(header="username")
+        table.add_column(header="role", style="magenta")
+        for memeber in members:
+            table.add_row(memeber["username"], memeber["role"])
+        console.print(table)
+        tm = questionary.autocomplete(
+            "Schedule With Whom", choices=[member["username"] for member in members]
+        ).ask()
+        start_date: str = questionary.text(
+            "Start Date:", instruction="yyyy-mm-dd"
+        ).ask()
+        start_time: str = questionary.text("Start Time:", instruction="hh:mm:ss").ask()
+        end_date: str = questionary.text("End Date:", instruction="yyyy-mm-dd").ask()
+        end_time: str = questionary.text("End Time:", instruction="hh:mm:ss").ask()
+        utils.schedule(
+            person_1,
+            tm,
+            start=datetime.strptime(
+                start_date + " " + start_time, r"%y-%m-%d %H:%M:%S"
+            ),
+            end=datetime.strptime(end_date + " " + end_time, r"%y-%m-%d %H:%M:%S"),
+        )
