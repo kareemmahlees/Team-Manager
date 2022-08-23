@@ -1,7 +1,7 @@
 import time
 import psycopg2
 from psycopg2.extras import RealDictCursor
-from config import settings
+from .core.config import settings
 from rich.console import Console
 
 console = Console()
