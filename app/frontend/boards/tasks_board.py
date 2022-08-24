@@ -13,6 +13,10 @@ from ..link.tasks import Tasks
 
 
 class TasksBoard(UserControl):
+    """
+    class for returning cards of tasks
+    """
+
     tasks = Tasks().get_tasks()
 
     def build(self):

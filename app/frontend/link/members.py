@@ -4,6 +4,10 @@ from ..core.config import settings
 
 
 class Members(requests.Session):
+    """
+    class for handling members data
+    """
+
     def __init__(self) -> None:
         super().__init__()
 

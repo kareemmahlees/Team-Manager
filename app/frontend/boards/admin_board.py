@@ -16,6 +16,12 @@ from .tasks_board import TasksBoard
 
 
 def admin_board(page: Page):
+    """
+    Dashboard which appears to the admins only
+
+    Args:
+        page (Page): page instance
+    """
     page.views.clear()
 
     def on_click_members(e):

@@ -3,6 +3,10 @@ from ..link.members import Members
 
 
 class MembersBoard(UserControl):
+    """
+    class for returning cards of members
+    """
+
     def __init__(self):
         super().__init__()
 

@@ -3,6 +3,10 @@ from ..core.config import settings
 
 
 class Login(requests.Session):
+    """
+    class for validating the user input from the api
+    """
+
     def __init__(self, username: str, password: str) -> None:
         self.username = username
         self.password = password
