@@ -22,6 +22,7 @@ def main(page: Page):
     page.vertical_alignment = "center"
     page.theme_mode = "light"
     page.window_resizable = False
+    page.title = "Team Manager"
     page.theme = theme.Theme(color_scheme_seed="blue")
     page.window_height = page.window_height - 100
     page.window_width = page.window_width - 200
