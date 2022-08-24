@@ -12,7 +12,7 @@ from flet import (
 )
 from .members_board import MembersBoard
 from .settings_board import SettingsBoard
-from ..link.members import Members
+from .tasks_board import TasksBoard
 
 
 def admin_board(page: Page):
@@ -28,7 +28,17 @@ def admin_board(page: Page):
             page.update()
 
     members_button = TextButton("Members", icon=icons.PERSON, on_click=on_click_members)
-    tasks_button = TextButton("Tasks", icon=icons.TASK)
+
+    def on_click_tasks(e):
+        if len(r1.controls) > 2:
+            r1.controls.pop(-1)
+            r1.controls.append(TasksBoard())
+            page.update()
+        else:
+            r1.controls.append(TasksBoard())
+            page.update()
+
+    tasks_button = TextButton("Tasks", icon=icons.TASK, on_click=on_click_tasks)
     meetings_button = TextButton("Meetings", icon=icons.MEETING_ROOM)
 
     def on_click_settings(e):

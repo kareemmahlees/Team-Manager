@@ -31,5 +31,3 @@ class MembersBoard(UserControl):
             ],
             expand=True,
         )
-
-        # return Column(controls=[Text("Hello World")])
